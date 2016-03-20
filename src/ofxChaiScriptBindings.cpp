@@ -15,13 +15,6 @@ std::shared_ptr<chaiscript::Module> ofxChaiScriptBindOf()
     ADD_FUN(ofGetFrameRate);
 
     //math
-    ADD_CLASS(ofVec2f);
-    ADD_CLASS(ofVec3f);
-    ADD_CLASS(ofPoint);
-
-    //COLOR
-    //ADD_CLASS(ofColor);
-
     {
         ModulePtr m = ModulePtr(new chaiscript::Module());
         chaiscript::utility::add_class<ofVec2f>(*m,
@@ -29,7 +22,7 @@ std::shared_ptr<chaiscript::Module> ofxChaiScriptBindOf()
             {
                 constructor<ofVec2f()>(),
                 constructor<ofVec2f(float)>(),
-                constructor<ofVec2f(float)>(),
+                constructor<ofVec2f(float,float)>(),
                 constructor<ofVec2f(const ofVec3f &)>(),
                 constructor<ofVec2f(const ofVec4f &)>()
             },
@@ -41,6 +34,12 @@ std::shared_ptr<chaiscript::Module> ofxChaiScriptBindOf()
         );
         module->add(m);
     }
+
+    ADD_CLASS(ofVec3f);
+    ADD_CLASS(ofPoint);
+
+    //COLOR
+    //ADD_CLASS(ofColor);
 
     //GRAPHICS
     ADD_FUN(ofPushStyle);
