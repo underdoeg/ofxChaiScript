@@ -4,12 +4,15 @@
 #include "chaiscript/chaiscript.hpp"
 #include "ofMain.h"
 
-class ofxChaiScript: public chaiscript::ChaiScript{
+class ofxChaiScript{
 
 public:
 	ofxChaiScript();
 
-	chaiscript::ModulePtr module;
+    void exec(std::string);
+
+    chaiscript::ModulePtr module;
+    std::unique_ptr<chaiscript::ChaiScript> chai;
 };
 
 #endif

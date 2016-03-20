@@ -11,7 +11,8 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-	chai(R"(
+
+    chai.exec(R"(
 			ofPushStyle();
 			ofSetColor(255, 0, 0);
 			ofDrawRectangle(30, 30, 200, 200);
