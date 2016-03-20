@@ -1,0 +1,5 @@
+build-*
+example/bin/exam*
+**/bin/libs/*
+**/obj/*
+*.user
