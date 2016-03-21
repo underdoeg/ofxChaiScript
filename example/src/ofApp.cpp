@@ -2,8 +2,14 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+    ofVec2f f;
+    ofVec3f d;
+    f = d;
+
     chai.exec(R"(
             var vecTest = ofVec2f(10, 20);
+            var vecTest2 = ofVec2f();
+            vecTest2 = vecTest;
     )");
 }
 
@@ -18,7 +24,7 @@ void ofApp::draw(){
     chai.exec(R"(
 			ofPushStyle();
 			ofSetColor(255, 0, 0);
-			ofDrawRectangle(30, 30, 200, 200);
+            ofDrawRectangle(vecTest, 200, 200);
 			ofPopStyle();
 	)");
 }

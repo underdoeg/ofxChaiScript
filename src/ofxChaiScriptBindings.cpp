@@ -14,7 +14,7 @@ std::shared_ptr<chaiscript::Module> ofxChaiScriptBindOf()
     //
     ADD_FUN(ofGetFrameRate);
 
-    //math
+    //ofVec2f
     {
         ModulePtr m = ModulePtr(new chaiscript::Module());
         chaiscript::utility::add_class<ofVec2f>(*m,
@@ -35,7 +35,27 @@ std::shared_ptr<chaiscript::Module> ofxChaiScriptBindOf()
         module->add(m);
     }
 
-    ADD_CLASS(ofVec3f);
+    //ofVec3f
+    {
+        ModulePtr m = ModulePtr(new chaiscript::Module());
+        chaiscript::utility::add_class<ofVec3f>(*m,
+            "ofVec3f",
+            {
+                constructor<ofVec3f()>(),
+                constructor<ofVec3f(float)>(),
+                constructor<ofVec3f(float,float, float)>(),
+                constructor<ofVec3f(const ofVec2f &)>(),
+                constructor<ofVec3f(const ofVec4f &)>()
+            },
+            {
+               //{fun(&ofVec2f::operator []), "[]"},
+                {fun(&ofVec3f::operator ==), "=="},
+                {fun(&ofVec3f::operator !=), "!="}
+            }
+        );
+        module->add(m);
+    }
+
     ADD_CLASS(ofPoint);
 
     //COLOR
